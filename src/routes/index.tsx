@@ -192,7 +192,7 @@ function Index() {
           <img
             src={thehillsLogo}
             alt="THE HILLS"
-            className="h-7 w-auto"
+            className="h-4 w-auto max-w-[130px] object-contain"
           />
           <button className="flex items-center gap-2 text-base font-medium" aria-label="Entrar">
             <User className="h-5 w-5" aria-hidden="true" />
