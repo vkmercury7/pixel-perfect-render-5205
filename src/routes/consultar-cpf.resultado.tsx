@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { AlertTriangle, User, Info, Accessibility } from "lucide-react";
+import { AlertTriangle, Check, User, Info, Accessibility } from "lucide-react";
 
 export const Route = createFileRoute("/consultar-cpf/resultado")({
   head: () => ({
@@ -51,12 +51,12 @@ function Resultado() {
 
       {/* Área de resultado */}
       <section className="flex flex-col items-center px-6 pt-10 text-center">
-        <AlertTriangle
-          className="h-9 w-9 text-primary"
+        <Check
+          className="h-8 w-8 text-primary"
           aria-hidden="true"
-          fill="currentColor"
-          stroke="none"
+          strokeWidth={3}
         />
+
         <p className="mt-3 text-[12px] text-muted-foreground">
            Consulta Serasa
         </p>
