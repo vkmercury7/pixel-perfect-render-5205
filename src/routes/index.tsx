@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import {
   Menu,
@@ -166,9 +166,13 @@ function Index() {
               Encontre oportunidades para organizar suas pendências financeiras, melhorar seu
               planejamento e recuperar o controle das suas finanças.
             </p>
-            <button className="mt-5 w-full rounded-lg bg-primary px-6 py-4 text-base font-bold text-primary-foreground transition-colors hover:bg-primary/90">
+            <Link
+              to="/consultar-cpf"
+              className="mt-5 block w-full rounded-lg bg-primary px-6 py-4 text-center text-base font-bold text-primary-foreground transition-colors hover:bg-primary/90"
+            >
               Consultar agora
-            </button>
+            </Link>
+
           </div>
         </section>
 
