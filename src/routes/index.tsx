@@ -135,7 +135,7 @@ function Index() {
             <Menu className="h-5 w-5" aria-hidden="true" />
             Menu
           </button>
-          <span className="text-lg font-extrabold tracking-tight">THE HILLS</span>
+          <span className="text-lg font-extrabold tracking-tight">Serasa</span>
           <button className="flex items-center gap-2 text-base font-medium" aria-label="Entrar">
             <User className="h-5 w-5" aria-hidden="true" />
             Entrar
@@ -155,7 +155,7 @@ function Index() {
           />
           <div className="-mt-3 rounded-2xl bg-muted p-5">
             <h1 className="text-[26px] font-bold leading-tight text-navy">
-              THE HILLS: Negocie dívidas e organize sua vida financeira
+              Serasa: Negocie dívidas e organize sua vida financeira
             </h1>
             <p className="mt-3 text-base leading-relaxed text-muted-foreground">
               Encontre oportunidades para organizar suas pendências financeiras, melhorar seu
@@ -170,7 +170,7 @@ function Index() {
         {/* Soluções */}
         <section className="mt-12">
           <h2 className="text-[28px] font-bold leading-tight text-navy">
-            A sua conta THE HILLS tem todas as soluções
+            A sua conta Serasa tem todas as soluções
           </h2>
 
           <div
@@ -227,7 +227,7 @@ function Index() {
         {/* Oferta especial */}
         <section className="mt-12 rounded-2xl bg-soft-pink p-5">
           <span className="inline-block rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground">
-            Oferta especial THE HILLS
+            Oferta especial Serasa
           </span>
           <h2 className="mt-5 text-[26px] font-bold leading-tight text-navy">
             Renegocie suas dívidas com condições especiais
