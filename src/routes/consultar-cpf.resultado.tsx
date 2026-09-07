@@ -62,7 +62,7 @@ function Resultado() {
         </p>
         <h1 className="mt-2 text-[22px] font-medium leading-snug text-navy">
           Dívidas do CPF: <br />
-          <span className="font-bold">Encontramos 1 pendência</span>
+          <span className="font-bold">Encontramos 1 oportunidade</span>
         </h1>
         <Link
           to="/renegociacao-demo"
@@ -99,7 +99,7 @@ function Resultado() {
           <p className="mt-4 text-[11px] uppercase tracking-wide text-muted-foreground">
             Tipo de pendência
           </p>
-          <p className="text-[17px] font-bold text-navy">Imposto de Renda</p>
+          <p className="text-[17px] font-bold text-navy">Dívida bancária</p>
 
           <p className="mt-3 text-[13px] text-muted-foreground">
             Data: 07/09/2026
