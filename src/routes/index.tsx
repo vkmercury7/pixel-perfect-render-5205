@@ -387,6 +387,9 @@ function Index() {
         </section>
       </main>
 
+      <SiteFooter />
+
+
       {/* Botão flutuante */}
       <button
         aria-label="Atendimento THE HILLS"
