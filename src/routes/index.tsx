@@ -14,11 +14,16 @@ import {
   ShieldCheck,
   Sparkles,
   Headset,
+  Quote,
 } from "lucide-react";
 
 import heroBanner from "@/assets/hero-banner.webp.asset.json";
 import promoOfferAsset from "@/assets/promo-oferta.png.asset.json";
 import serasaLogo from "@/assets/serasa-logo.png";
+import avatar1 from "@/assets/avatar-1.jpg";
+import avatar2 from "@/assets/avatar-2.jpg";
+import avatar3 from "@/assets/avatar-3.jpg";
+import avatar4 from "@/assets/avatar-4.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -87,9 +92,34 @@ const solutions = [
   },
 ];
 
+const testimonials = [
+  {
+    name: "Renata Carvalho",
+    photo: avatar1,
+    text: "Consegui visualizar melhor minhas pendências e entender quais eram os próximos passos para organizar minha vida financeira.",
+  },
+  {
+    name: "Mariana Alves",
+    photo: avatar2,
+    text: "A plataforma é simples de usar e consegui encontrar as informações que precisava sem complicação.",
+  },
+  {
+    name: "Carlos Henrique",
+    photo: avatar3,
+    text: "Gostei principalmente da facilidade para visualizar as informações e acompanhar tudo pelo celular.",
+  },
+  {
+    name: "Juliana Martins",
+    photo: avatar4,
+    text: "O processo é bem direto e a organização das informações tornou tudo muito mais fácil de entender.",
+  },
+];
+
 function Index() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
+  const feedbackRef = useRef<HTMLDivElement>(null);
+  const [feedbackIndex, setFeedbackIndex] = useState(0);
 
   const goTo = (next: number) => {
     const clamped = Math.max(0, Math.min(solutions.length - 1, next));
@@ -110,6 +140,27 @@ function Index() {
     if (!first) return;
     const step = second ? second.offsetLeft - first.offsetLeft : first.offsetWidth;
     setIndex(Math.round(track.scrollLeft / step));
+  };
+
+  const goToFeedback = (next: number) => {
+    const clamped = Math.max(0, Math.min(testimonials.length - 1, next));
+    setFeedbackIndex(clamped);
+    const track = feedbackRef.current;
+    if (!track) return;
+    const card = track.children[clamped] as HTMLElement | undefined;
+    if (card) {
+      track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: "smooth" });
+    }
+  };
+
+  const handleFeedbackScroll = () => {
+    const track = feedbackRef.current;
+    if (!track) return;
+    const first = track.children[0] as HTMLElement | undefined;
+    const second = track.children[1] as HTMLElement | undefined;
+    if (!first) return;
+    const step = second ? second.offsetLeft - first.offsetLeft : first.offsetWidth;
+    setFeedbackIndex(Math.round(track.scrollLeft / step));
   };
 
   return (
@@ -269,6 +320,69 @@ function Index() {
               Saiba mais
               <ChevronRight className="h-4 w-4" aria-hidden="true" />
             </a>
+          </div>
+        </section>
+
+        {/* Depoimentos */}
+        <section className="mt-12">
+          <h2 className="text-[28px] font-bold leading-tight text-navy">
+            Histórias de quem está organizando a vida financeira
+          </h2>
+          <p className="mt-2 text-sm text-muted-foreground">Depoimentos ilustrativos</p>
+
+          <div
+            ref={feedbackRef}
+            onScroll={handleFeedbackScroll}
+            className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {testimonials.map((item) => (
+              <article
+                key={item.name}
+                className="flex min-h-[260px] w-[280px] shrink-0 snap-start flex-col rounded-2xl border border-border bg-card p-6"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="relative">
+                    <img
+                      src={item.photo}
+                      alt={item.name}
+                      width={512}
+                      height={512}
+                      loading="lazy"
+                      className="h-16 w-16 rounded-full object-cover"
+                    />
+                    <span className="absolute -bottom-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                      <Quote className="h-3.5 w-3.5" aria-hidden="true" />
+                    </span>
+                  </div>
+                  <span className="text-lg font-bold text-navy">{item.name}</span>
+                </div>
+                <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+                  {item.text}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-4 flex items-center gap-4">
+            <button
+              onClick={() => goToFeedback(feedbackIndex - 1)}
+              disabled={feedbackIndex === 0}
+              aria-label="Depoimento anterior"
+              className="flex h-12 w-12 items-center justify-center rounded-lg border border-border text-navy transition-opacity disabled:opacity-40"
+            >
+              <ArrowLeft className="h-5 w-5" aria-hidden="true" />
+            </button>
+            <span className="text-sm text-muted-foreground">
+              {feedbackIndex + 1}/{testimonials.length}
+            </span>
+            <button
+              onClick={() => goToFeedback(feedbackIndex + 1)}
+              disabled={feedbackIndex === testimonials.length - 1}
+              aria-label="Próximo depoimento"
+              className="flex h-12 w-12 items-center justify-center rounded-lg border-2 border-navy text-navy transition-opacity disabled:opacity-40"
+            >
+              <ArrowRight className="h-5 w-5" aria-hidden="true" />
+            </button>
           </div>
         </section>
       </main>
