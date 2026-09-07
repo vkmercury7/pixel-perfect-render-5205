@@ -152,7 +152,7 @@ function Index() {
         {/* Hero */}
         <section>
           <img
-            src={heroBanner}
+            src={heroBanner.url}
             alt="Pessoa com celular e cupons de desconto THE HILLS"
             width={860}
             height={760}
