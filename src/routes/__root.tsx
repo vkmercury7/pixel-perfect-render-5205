@@ -77,10 +77,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Serasa : Negocie dívidas" },
+      { title: "THE HILLS : Negocie dívidas" },
       { name: "description", content: "Negocie dívidas e organize sua vida financeira." },
-      { name: "author", content: "Serasa" },
-      { property: "og:title", content: "Serasa : Negocie dívidas" },
+      { name: "author", content: "THE HILLS" },
+      { property: "og:title", content: "THE HILLS : Negocie dívidas" },
       { property: "og:description", content: "Negocie dívidas e organize sua vida financeira." },
 
       { property: "og:type", content: "website" },
