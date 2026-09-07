@@ -51,10 +51,12 @@ function ConsultarCpf() {
   return (
     <div className="flex min-h-[100dvh] flex-col bg-background px-[17px] font-sans">
       <div className="pt-14">
-        {/* Monograma THE HILLS */}
-        <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-[15px] font-extrabold tracking-tight text-primary-foreground">
-          TH
-        </span>
+        {/* Logo THE HILLS */}
+        <img
+          src={logoAsset.url}
+          alt="THE HILLS"
+          className="h-9 w-9 rounded-lg object-contain"
+        />
 
         <h1 className="mt-12 text-[23px] font-medium leading-snug text-navy">
           Digite seu CPF
