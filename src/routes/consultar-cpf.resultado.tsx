@@ -35,17 +35,17 @@ function Resultado() {
           <span className="text-[15px] text-navy">Olá</span>
         </div>
         <span className="text-[12px] font-extrabold tracking-[0.18em] text-navy/60">
-          THE HILLS
+           SERASA
         </span>
       </header>
 
       {/* Aviso de demonstração */}
       <div className="px-5 pt-4">
         <span className="inline-block rounded-full bg-accent px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-accent-foreground">
-          Demonstração
+           
         </span>
         <p className="mt-1.5 text-[12px] text-muted-foreground">
-          Os valores e informações exibidos nesta tela são fictícios.
+           
         </p>
       </div>
 
