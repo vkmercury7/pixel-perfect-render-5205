@@ -231,7 +231,7 @@ function Index() {
 
         {/* Soluções */}
         <section className="mt-12">
-          <h2 className="text-[28px] font-bold leading-tight text-navy">
+          <h2 className="text-[28px] leading-tight text-navy">
             A sua conta Serasa tem todas as soluções
           </h2>
 
