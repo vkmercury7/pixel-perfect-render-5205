@@ -18,9 +18,9 @@ import {
 } from "lucide-react";
 
 import { SiteFooter } from "@/components/SiteFooter";
-import heroBanner from "@/assets/hero-desbanca.png";
-import promoOfferAsset from "@/assets/promo-oferta.png";
-import serasaLogo from "@/assets/serasa-logo.png";
+import heroBanner from "@/assets/hero-thehills.jpg";
+import promoOfferAsset from "@/assets/promo-thehills.jpg";
+import thehillsLogo from "@/assets/thehills-wordmark.png";
 import avatar1 from "@/assets/avatar-1.jpg";
 import avatar2 from "@/assets/avatar-2.jpg";
 import avatar3 from "@/assets/avatar-3.jpg";
@@ -29,15 +29,15 @@ import avatar4 from "@/assets/avatar-4.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Serasa : Negocie dívidas" },
+      { title: "THE HILLS : Negocie dívidas" },
       {
         name: "description",
         content:
-          "Negocie dívidas, consulte sua situação financeira e organize seu planejamento com as soluções Serasa.",
+          "Negocie dívidas, consulte sua situação financeira e organize seu planejamento com as soluções THE HILLS.",
       },
       {
         property: "og:title",
-        content: "Serasa : Negocie dívidas",
+        content: "THE HILLS : Negocie dívidas",
       },
 
       {
@@ -190,8 +190,8 @@ function Index() {
             Menu
           </button>
           <img
-            src={serasaLogo}
-            alt="Serasa"
+            src={thehillsLogo}
+            alt="THE HILLS"
             className="h-7 w-auto"
           />
           <button className="flex items-center gap-2 text-base font-medium" aria-label="Entrar">
@@ -206,14 +206,14 @@ function Index() {
         <section>
           <img
             src={heroBanner}
-            alt="Pessoa com celular e cupons de desconto THE HILLS"
+            alt="Pessoa comemorando: organize suas finanças com a THE HILLS"
             width={860}
             height={760}
             className="w-full rounded-2xl object-cover"
           />
           <div className="-mt-3 rounded-2xl bg-muted p-5">
             <h1 className="text-[26px] font-bold leading-tight text-navy">
-              Serasa: Negocie dívidas e organize sua vida financeira
+              THE HILLS: Negocie dívidas e organize sua vida financeira
             </h1>
             <p className="mt-3 text-base leading-relaxed text-muted-foreground">
               Encontre oportunidades para organizar suas pendências financeiras, melhorar seu
@@ -232,7 +232,7 @@ function Index() {
         {/* Soluções */}
         <section className="mt-12">
           <h2 className="text-[28px] leading-tight text-navy">
-            A sua conta Serasa tem todas as soluções
+            A sua conta THE HILLS tem todas as soluções
           </h2>
 
           <div
@@ -289,7 +289,7 @@ function Index() {
         {/* Oferta especial */}
         <section className="mt-12 rounded-2xl bg-soft-pink p-5">
           <span className="inline-block rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground">
-            Oferta especial Serasa
+            Oferta especial THE HILLS
           </span>
           <h2 className="mt-5 text-[26px] font-bold leading-tight text-navy">
             Renegocie suas dívidas com condições especiais
@@ -301,7 +301,7 @@ function Index() {
 
           <img
             src={promoOfferAsset}
-            alt="Campanha promocional Serasa e Mercado Pago: cupons em dobro"
+            alt="Campanha promocional THE HILLS: cupons em dobro"
             width={472}
             height={266}
             loading="lazy"
@@ -328,7 +328,7 @@ function Index() {
         {/* Depoimentos */}
         <section className="mt-12">
           <h2 className="text-[28px] font-bold leading-tight text-navy">
-            Histórias reais: quem confia na Serasa para organizar as finanças
+            Histórias reais: quem confia na THE HILLS para organizar as finanças
           </h2>
           <p className="mt-2 text-sm text-muted-foreground"></p>
 
