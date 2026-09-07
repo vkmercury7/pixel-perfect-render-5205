@@ -62,7 +62,7 @@ function Resultado() {
         </p>
         <h1 className="mt-2 text-[22px] font-medium leading-snug text-navy">
           Dívidas do CPF: <br />
-          <span className="font-bold">Encontramos 1 pendência simulada</span>
+          <span className="font-bold">Encontramos 1 pendência</span>
         </h1>
         <Link
           to="/renegociacao-demo"
@@ -93,7 +93,7 @@ function Resultado() {
 
         <article className="mt-4 rounded-2xl border border-border bg-card p-5">
           <span className="inline-block rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
-            Demonstração
+             DÍVIDA ENCONTRADA
           </span>
 
           <p className="mt-4 text-[11px] uppercase tracking-wide text-muted-foreground">
@@ -111,11 +111,10 @@ function Resultado() {
           </p>
 
           <p className="mt-3 text-[12px] font-bold uppercase tracking-wide text-primary">
-            Pendência simulada
+             PENDÊNCIA ENCONTRADA
           </p>
           <p className="mt-3 text-[12px] leading-relaxed text-muted-foreground">
-            Exemplo fictício utilizado apenas para demonstrar o funcionamento da
-            plataforma.
+             Regularize a pendência para manter seu CPF em dia.
           </p>
         </article>
 
