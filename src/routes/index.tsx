@@ -322,6 +322,69 @@ function Index() {
             </a>
           </div>
         </section>
+
+        {/* Depoimentos */}
+        <section className="mt-12">
+          <h2 className="text-[28px] font-bold leading-tight text-navy">
+            Histórias de quem está organizando a vida financeira
+          </h2>
+          <p className="mt-2 text-sm text-muted-foreground">Depoimentos ilustrativos</p>
+
+          <div
+            ref={feedbackRef}
+            onScroll={handleFeedbackScroll}
+            className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {testimonials.map((item) => (
+              <article
+                key={item.name}
+                className="flex min-h-[260px] w-[280px] shrink-0 snap-start flex-col rounded-2xl border border-border bg-card p-6"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="relative">
+                    <img
+                      src={item.photo}
+                      alt={item.name}
+                      width={512}
+                      height={512}
+                      loading="lazy"
+                      className="h-16 w-16 rounded-full object-cover"
+                    />
+                    <span className="absolute -bottom-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                      <Quote className="h-3.5 w-3.5" aria-hidden="true" />
+                    </span>
+                  </div>
+                  <span className="text-lg font-bold text-navy">{item.name}</span>
+                </div>
+                <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+                  {item.text}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-4 flex items-center gap-4">
+            <button
+              onClick={() => goToFeedback(feedbackIndex - 1)}
+              disabled={feedbackIndex === 0}
+              aria-label="Depoimento anterior"
+              className="flex h-12 w-12 items-center justify-center rounded-lg border border-border text-navy transition-opacity disabled:opacity-40"
+            >
+              <ArrowLeft className="h-5 w-5" aria-hidden="true" />
+            </button>
+            <span className="text-sm text-muted-foreground">
+              {feedbackIndex + 1}/{testimonials.length}
+            </span>
+            <button
+              onClick={() => goToFeedback(feedbackIndex + 1)}
+              disabled={feedbackIndex === testimonials.length - 1}
+              aria-label="Próximo depoimento"
+              className="flex h-12 w-12 items-center justify-center rounded-lg border-2 border-navy text-navy transition-opacity disabled:opacity-40"
+            >
+              <ArrowRight className="h-5 w-5" aria-hidden="true" />
+            </button>
+          </div>
+        </section>
       </main>
 
       {/* Botão flutuante */}
