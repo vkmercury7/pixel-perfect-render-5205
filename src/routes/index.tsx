@@ -18,6 +18,7 @@ import {
 
 import heroBanner from "@/assets/hero-banner.jpg";
 import promoBanner from "@/assets/promo-banner.jpg";
+import serasaLogo from "@/assets/serasa-logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -135,7 +136,11 @@ function Index() {
             <Menu className="h-5 w-5" aria-hidden="true" />
             Menu
           </button>
-          <span className="text-lg font-extrabold tracking-tight">Serasa</span>
+          <img
+            src={serasaLogo}
+            alt="Serasa"
+            className="h-7 w-auto"
+          />
           <button className="flex items-center gap-2 text-base font-medium" aria-label="Entrar">
             <User className="h-5 w-5" aria-hidden="true" />
             Entrar
