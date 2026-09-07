@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 
 import heroBanner from "@/assets/hero-banner.webp.asset.json";
-import promoBanner from "@/assets/promo-banner.jpg";
+import promoOfferAsset from "@/assets/promo-oferta.png.asset.json";
 import serasaLogo from "@/assets/serasa-logo.png";
 
 export const Route = createFileRoute("/")({
@@ -247,10 +247,10 @@ function Index() {
           </p>
 
           <img
-            src={promoBanner}
-            alt="Campanha promocional de renegociação THE HILLS"
-            width={1000}
-            height={560}
+            src={promoOfferAsset.url}
+            alt="Campanha promocional Serasa e Mercado Pago: cupons em dobro"
+            width={472}
+            height={266}
             loading="lazy"
             className="mt-6 w-full rounded-xl object-cover"
           />
