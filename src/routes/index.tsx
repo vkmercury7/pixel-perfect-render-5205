@@ -17,6 +17,7 @@ import {
   Quote,
 } from "lucide-react";
 
+import { SiteFooter } from "@/components/SiteFooter";
 import heroBanner from "@/assets/hero-banner.webp.asset.json";
 import promoOfferAsset from "@/assets/promo-oferta.png.asset.json";
 import serasaLogo from "@/assets/serasa-logo.png";
@@ -386,6 +387,9 @@ function Index() {
           </div>
         </section>
       </main>
+
+      <SiteFooter />
+
 
       {/* Botão flutuante */}
       <button
