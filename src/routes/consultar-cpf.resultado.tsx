@@ -35,7 +35,7 @@ function Resultado() {
           <span className="text-[15px] text-navy">Olá</span>
         </div>
         <span className="text-[12px] font-extrabold tracking-[0.18em] text-navy/60">
-           THE HILLS
+            Serasa
         </span>
       </header>
 
@@ -58,7 +58,7 @@ function Resultado() {
         />
 
         <p className="mt-3 text-[12px] text-muted-foreground">
-           Consulta THE HILLS
+            Consulta Serasa
         </p>
         <h1 className="mt-2 text-[22px] font-medium leading-snug text-navy">
           Dívidas do CPF: <br />
