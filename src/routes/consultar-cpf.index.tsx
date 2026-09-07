@@ -135,7 +135,7 @@ function ConsultarCpf() {
               setTouched(true);
               return;
             }
-            navigate({ to: "/consultar-cpf/resultado" });
+            navigate({ to: "/consultando" });
           }}
           className="mt-5 h-14 w-full rounded-lg text-[17px] font-bold transition-colors disabled:cursor-not-allowed enabled:cursor-pointer enabled:bg-primary enabled:text-primary-foreground disabled:bg-muted disabled:text-muted-foreground"
         >
