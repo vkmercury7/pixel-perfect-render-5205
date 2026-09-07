@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Instagram,
   Youtube,
@@ -6,9 +5,8 @@ import {
   Linkedin,
   Twitter,
   Music2,
-  Plus,
-  Minus,
 } from "lucide-react";
+
 
 const columns = [
   {
@@ -88,8 +86,6 @@ const socials = [
 ];
 
 export function SiteFooter() {
-  const [open, setOpen] = useState<string | null>(null);
-
   return (
     <footer className="w-full bg-background">
       <div className="h-[5px] w-full bg-primary" />
@@ -116,44 +112,24 @@ export function SiteFooter() {
           ))}
         </div>
 
-        {/* Mobile: accordions */}
+        {/* Mobile: tudo aberto, coluna única */}
         <div className="lg:hidden">
-          {columns.map((col) => {
-            const isOpen = open === col.title;
-            return (
-              <div key={col.title} className="border-b border-border">
-                <button
-                  type="button"
-                  onClick={() => setOpen(isOpen ? null : col.title)}
-                  aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between py-4 text-left"
-                >
-                  <span className="text-base font-bold text-navy">{col.title}</span>
-                  {isOpen ? (
-                    <Minus className="h-5 w-5 text-primary" aria-hidden="true" />
-                  ) : (
-                    <Plus className="h-5 w-5 text-primary" aria-hidden="true" />
-                  )}
-                </button>
-                <div
-                  className={`grid transition-all duration-300 ease-out ${
-                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                  }`}
-                >
-                  <ul className="overflow-hidden">
-                    {col.links.map((link) => (
-                      <li key={link} className="pb-3.5">
-                        <a href="#" className="text-sm text-navy">
-                          {link}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            );
-          })}
+          {columns.map((col) => (
+            <div key={col.title} className="mb-10">
+              <h3 className="mb-5 text-xl font-bold text-navy">{col.title}</h3>
+              <ul>
+                {col.links.map((link) => (
+                  <li key={link} className="mb-4">
+                    <a href="#" className="text-base font-normal text-navy">
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
+
 
         {/* Área inferior */}
         <div className="mt-16 flex flex-col items-center gap-8 pb-12 lg:mt-28 lg:flex-row lg:items-end lg:justify-between">
