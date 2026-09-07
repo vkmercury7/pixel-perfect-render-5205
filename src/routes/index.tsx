@@ -92,9 +92,34 @@ const solutions = [
   },
 ];
 
+const testimonials = [
+  {
+    name: "Renata Carvalho",
+    photo: avatar1,
+    text: "Consegui visualizar melhor minhas pendências e entender quais eram os próximos passos para organizar minha vida financeira.",
+  },
+  {
+    name: "Mariana Alves",
+    photo: avatar2,
+    text: "A plataforma é simples de usar e consegui encontrar as informações que precisava sem complicação.",
+  },
+  {
+    name: "Carlos Henrique",
+    photo: avatar3,
+    text: "Gostei principalmente da facilidade para visualizar as informações e acompanhar tudo pelo celular.",
+  },
+  {
+    name: "Juliana Martins",
+    photo: avatar4,
+    text: "O processo é bem direto e a organização das informações tornou tudo muito mais fácil de entender.",
+  },
+];
+
 function Index() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
+  const feedbackRef = useRef<HTMLDivElement>(null);
+  const [feedbackIndex, setFeedbackIndex] = useState(0);
 
   const goTo = (next: number) => {
     const clamped = Math.max(0, Math.min(solutions.length - 1, next));
@@ -115,6 +140,27 @@ function Index() {
     if (!first) return;
     const step = second ? second.offsetLeft - first.offsetLeft : first.offsetWidth;
     setIndex(Math.round(track.scrollLeft / step));
+  };
+
+  const goToFeedback = (next: number) => {
+    const clamped = Math.max(0, Math.min(testimonials.length - 1, next));
+    setFeedbackIndex(clamped);
+    const track = feedbackRef.current;
+    if (!track) return;
+    const card = track.children[clamped] as HTMLElement | undefined;
+    if (card) {
+      track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: "smooth" });
+    }
+  };
+
+  const handleFeedbackScroll = () => {
+    const track = feedbackRef.current;
+    if (!track) return;
+    const first = track.children[0] as HTMLElement | undefined;
+    const second = track.children[1] as HTMLElement | undefined;
+    if (!first) return;
+    const step = second ? second.offsetLeft - first.offsetLeft : first.offsetWidth;
+    setFeedbackIndex(Math.round(track.scrollLeft / step));
   };
 
   return (
