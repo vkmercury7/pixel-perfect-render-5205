@@ -14,6 +14,7 @@ import {
   ShieldCheck,
   Sparkles,
   Headset,
+  Quote,
 } from "lucide-react";
 
 import heroBanner from "@/assets/hero-banner.webp.asset.json";
