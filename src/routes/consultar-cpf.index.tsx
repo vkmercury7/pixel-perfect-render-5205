@@ -1,7 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { AlertTriangle, Accessibility } from "lucide-react";
-import logoAsset from "@/assets/logo-th.png.asset.json";
+import logoTh from "@/assets/logo-th.png";
 
 export const Route = createFileRoute("/consultar-cpf/")({
   head: () => ({
