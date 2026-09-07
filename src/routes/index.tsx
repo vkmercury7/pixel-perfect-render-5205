@@ -19,6 +19,10 @@ import {
 import heroBanner from "@/assets/hero-banner.webp.asset.json";
 import promoOfferAsset from "@/assets/promo-oferta.png.asset.json";
 import serasaLogo from "@/assets/serasa-logo.png";
+import avatar1 from "@/assets/avatar-1.jpg";
+import avatar2 from "@/assets/avatar-2.jpg";
+import avatar3 from "@/assets/avatar-3.jpg";
+import avatar4 from "@/assets/avatar-4.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
