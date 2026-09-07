@@ -58,7 +58,7 @@ function Resultado() {
           stroke="none"
         />
         <p className="mt-3 text-[12px] text-muted-foreground">
-          Consulta demonstrativa
+           Consulta Serasa
         </p>
         <h1 className="mt-2 text-[22px] font-medium leading-snug text-navy">
           Dívidas do CPF: <br />
@@ -88,7 +88,7 @@ function Resultado() {
           <Info className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
         </div>
         <p className="mt-1 text-[13px] text-muted-foreground">
-          Veja abaixo os detalhes desta simulação.
+           Veja abaixo os detalhes desta dívida.
         </p>
 
         <article className="mt-4 rounded-2xl border border-border bg-card p-5">
