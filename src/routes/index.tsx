@@ -29,16 +29,17 @@ import avatar4 from "@/assets/avatar-4.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "THE HILLS: negocie dívidas e organize sua vida financeira" },
+      { title: "Serasa : Negocie dívidas" },
       {
         name: "description",
         content:
-          "Negocie dívidas, consulte sua situação financeira e organize seu planejamento com as soluções THE HILLS.",
+          "Negocie dívidas, consulte sua situação financeira e organize seu planejamento com as soluções Serasa.",
       },
       {
         property: "og:title",
-        content: "THE HILLS: negocie dívidas e organize sua vida financeira",
+        content: "Serasa : Negocie dívidas",
       },
+
       {
         property: "og:description",
         content:
