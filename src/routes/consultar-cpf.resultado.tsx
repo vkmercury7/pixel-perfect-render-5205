@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { AlertTriangle, Check, User, Info, Accessibility } from "lucide-react";
+import { Check, User, Info, Accessibility } from "lucide-react";
 
 export const Route = createFileRoute("/consultar-cpf/resultado")({
   head: () => ({
