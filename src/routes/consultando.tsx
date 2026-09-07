@@ -4,12 +4,12 @@ import { useEffect } from "react";
 export const Route = createFileRoute("/consultando")({
   head: () => ({
     meta: [
-      { title: "Consultando informações | THE HILLS" },
+      { title: "Consultando informações | Serasa" },
       {
         name: "description",
         content: "Aguarde alguns segundos enquanto consultamos as informações do CPF.",
       },
-      { property: "og:title", content: "Consultando informações | THE HILLS" },
+      { property: "og:title", content: "Consultando informações | Serasa" },
       {
         property: "og:description",
         content: "Aguarde alguns segundos enquanto consultamos as informações do CPF.",
