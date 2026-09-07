@@ -118,12 +118,14 @@ function Resultado() {
           </p>
         </article>
 
-        <Link
-          to="/renegociacao-demo"
+        <a
+          href="https://serasa-renegociacao.netlify.app"
+          target="_blank"
+          rel="noopener noreferrer"
           className="mt-5 flex h-14 w-full items-center justify-center rounded-lg bg-primary text-[16px] font-bold uppercase tracking-wide text-primary-foreground"
         >
           Renegociar dívida
-        </Link>
+        </a>
       </section>
 
       <Link
