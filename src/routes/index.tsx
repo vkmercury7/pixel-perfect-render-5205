@@ -18,8 +18,8 @@ import {
 } from "lucide-react";
 
 import { SiteFooter } from "@/components/SiteFooter";
-import heroBanner from "@/assets/hero-desbanca.png.asset.json";
-import promoOfferAsset from "@/assets/promo-oferta.png.asset.json";
+import heroBanner from "@/assets/hero-desbanca.png";
+import promoOfferAsset from "@/assets/promo-oferta.png";
 import serasaLogo from "@/assets/serasa-logo.png";
 import avatar1 from "@/assets/avatar-1.jpg";
 import avatar2 from "@/assets/avatar-2.jpg";
@@ -205,7 +205,7 @@ function Index() {
         {/* Hero */}
         <section>
           <img
-            src={heroBanner.url}
+            src={heroBanner}
             alt="Pessoa com celular e cupons de desconto THE HILLS"
             width={860}
             height={760}
@@ -300,7 +300,7 @@ function Index() {
           </p>
 
           <img
-            src={promoOfferAsset.url}
+            src={promoOfferAsset}
             alt="Campanha promocional Serasa e Mercado Pago: cupons em dobro"
             width={472}
             height={266}
