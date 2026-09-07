@@ -53,9 +53,9 @@ function ConsultarCpf() {
       <div className="pt-14">
         {/* Logo THE HILLS */}
         <img
-          src={logoAsset.url}
+          src={logoTh}
           alt="THE HILLS"
-          className="h-9 w-9 rounded-lg object-contain"
+          className="h-11 w-11 rounded-lg object-contain"
         />
 
         <h1 className="mt-12 text-[23px] font-medium leading-snug text-navy">
