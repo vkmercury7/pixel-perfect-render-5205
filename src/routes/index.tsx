@@ -213,7 +213,9 @@ function Index() {
           />
           <div className="-mt-3 rounded-2xl bg-muted p-5">
             <h1 className="text-[26px] font-bold leading-tight text-navy">
-              Serasa: Negocie dívidas e organize sua vida financeira
+              Serasa: Renegocie suas dívidas com até 89% de{" "}
+              <br />
+              DESCONTO
             </h1>
             <p className="mt-3 text-base leading-relaxed text-muted-foreground">
               Encontre oportunidades para organizar suas pendências financeiras, melhorar seu
