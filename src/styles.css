@@ -92,6 +92,8 @@
   /* Azul-marinho dos títulos */
   --navy: oklch(0.3 0.06 262);
   --soft-pink: oklch(0.97 0.02 350);
+  /* Rosa vinho complementar #B2165B */
+  --plum: oklch(0.49 0.19 1.5);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
