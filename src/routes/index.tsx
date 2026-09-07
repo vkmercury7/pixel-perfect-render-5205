@@ -328,7 +328,7 @@ function Index() {
           <h2 className="text-[28px] font-bold leading-tight text-navy">
             Histórias reais: quem confia na Serasa para organizar as finanças
           </h2>
-          <p className="mt-2 text-sm text-muted-foreground">Depoimentos ilustrativos</p>
+          <p className="mt-2 text-sm text-muted-foreground"></p>
 
           <div
             ref={feedbackRef}
