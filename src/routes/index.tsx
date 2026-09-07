@@ -326,7 +326,7 @@ function Index() {
         {/* Depoimentos */}
         <section className="mt-12">
           <h2 className="text-[28px] font-bold leading-tight text-navy">
-            Histórias de quem está organizando a vida financeira
+            Histórias reais: quem confia na Serasa para organizar as finanças
           </h2>
           <p className="mt-2 text-sm text-muted-foreground">Depoimentos ilustrativos</p>
 
