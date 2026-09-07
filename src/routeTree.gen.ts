@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ConsultarCpfIndexRouteImport } from './routes/consultar-cpf.index'
+import { Route as ConsultarCpfResultadoRouteImport } from './routes/consultar-cpf.resultado'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConsultarCpfIndexRoute = ConsultarCpfIndexRouteImport.update({
+  id: '/consultar-cpf/',
+  path: '/consultar-cpf/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConsultarCpfResultadoRoute = ConsultarCpfResultadoRouteImport.update({
+  id: '/consultar-cpf/resultado',
+  path: '/consultar-cpf/resultado',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/consultar-cpf/resultado': typeof ConsultarCpfResultadoRoute
+  '/consultar-cpf/': typeof ConsultarCpfIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/consultar-cpf/resultado': typeof ConsultarCpfResultadoRoute
+  '/consultar-cpf': typeof ConsultarCpfIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/consultar-cpf/resultado': typeof ConsultarCpfResultadoRoute
+  '/consultar-cpf/': typeof ConsultarCpfIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/consultar-cpf/resultado' | '/consultar-cpf/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/consultar-cpf/resultado' | '/consultar-cpf'
+  id: '__root__' | '/' | '/consultar-cpf/resultado' | '/consultar-cpf/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ConsultarCpfResultadoRoute: typeof ConsultarCpfResultadoRoute
+  ConsultarCpfIndexRoute: typeof ConsultarCpfIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/consultar-cpf/': {
+      id: '/consultar-cpf/'
+      path: '/consultar-cpf'
+      fullPath: '/consultar-cpf/'
+      preLoaderRoute: typeof ConsultarCpfIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/consultar-cpf/resultado': {
+      id: '/consultar-cpf/resultado'
+      path: '/consultar-cpf/resultado'
+      fullPath: '/consultar-cpf/resultado'
+      preLoaderRoute: typeof ConsultarCpfResultadoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ConsultarCpfResultadoRoute: ConsultarCpfResultadoRoute,
+  ConsultarCpfIndexRoute: ConsultarCpfIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
