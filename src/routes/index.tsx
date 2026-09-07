@@ -16,7 +16,7 @@ import {
   Headset,
 } from "lucide-react";
 
-import heroBanner from "@/assets/hero-banner.jpg";
+import heroBanner from "@/assets/hero-banner.webp.asset.json";
 import promoBanner from "@/assets/promo-banner.jpg";
 import serasaLogo from "@/assets/serasa-logo.png";
 
