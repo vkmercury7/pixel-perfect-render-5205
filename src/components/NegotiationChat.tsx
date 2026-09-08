@@ -158,7 +158,7 @@ export function NegotiationChat() {
     showNextMessage(
       [
         `Perfeito, ${name}. Recebi as informações.`,
-        "Com base nas condições de negociação que podem estar disponíveis, uma proposta de renegociação pela The Hills pode chegar a até 89% de desconto.",
+        "Com base nas condições de negociação que podem estar disponíveis, uma proposta de renegociação pela Serasa pode chegar a até 89% de desconto.",
         "O percentual final depende da análise, condições disponíveis, características da dívida e aprovação da negociação.",
       ],
       () => setShowOffer(true),
