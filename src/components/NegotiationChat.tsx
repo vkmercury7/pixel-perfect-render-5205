@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { MessageCircle, X, Headphones } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
-const NEGOTIATION_URL = "/renegociacao-demo";
+const NEGOTIATION_URL = "/consultar-cpf/resultado";
 
 type ChatMessage = {
   id: number;
@@ -258,12 +259,12 @@ export function NegotiationChat() {
                 <p className="mt-1 text-[11px] text-muted-foreground">
                   *Percentual sujeito às condições e análise da negociação.
                 </p>
-                <a
-                  href={NEGOTIATION_URL}
+                <Link
+                  to={NEGOTIATION_URL}
                   className="mt-4 block w-full rounded-lg bg-primary px-4 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
                 >
                   VER MINHA PROPOSTA
-                </a>
+                </Link>
               </div>
             )}
           </div>
