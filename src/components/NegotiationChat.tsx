@@ -117,13 +117,14 @@ export function NegotiationChat() {
     const clean = value.trim();
     if (!clean) return;
     pushUser(clean);
-    setName(clean.split(" ")[0]);
+    const firstName = clean.split(" ")[0] ?? clean;
+    setName(firstName);
     setDraft("");
     setInputEnabled(false);
     setStep(2);
     showNextMessage(
       [
-        `Muito bem, ${clean.split(" ")[0]}! 😊`,
+        `Muito bem, ${firstName}! 😊`,
         "Agora, por gentileza, informe seu CPF.",
         "Utilizamos essa informação somente para dar continuidade ao atendimento.",
       ],
