@@ -91,12 +91,12 @@ function Resultado() {
       <section className="px-5 pb-32">
         <div className="flex items-center gap-1.5">
           <h2 className="text-[17px] font-bold text-navy">
-            Negocie sua pendência
+            Negocie sua pendência com Desconto
           </h2>
           <Info className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
         </div>
         <p className="mt-1 text-[13px] text-muted-foreground">
-           Veja abaixo os detalhes desta dívida.
+           Veja abaixo os detalhes desta dívida com o Serasa Desconto.
         </p>
 
         <article className="mt-4 rounded-2xl border border-border bg-card p-5">
