@@ -296,7 +296,7 @@ export function NegotiationChat() {
                   onChange={(event) => handleChange(event.target.value)}
                   disabled={!inputEnabled}
                   onFocus={handleInputFocus}
-                  onBlur={handleInputBlur}
+                  
                   inputMode={step === 1 ? "text" : "numeric"}
                   placeholder={placeholder}
                   aria-label={placeholder}
