@@ -42,11 +42,13 @@ export function NegotiationChat() {
   const [name, setName] = useState("");
   const [draft, setDraft] = useState("");
   const [started, setStarted] = useState(false);
+  const [keyboardOpen, setKeyboardOpen] = useState(false);
 
   const idRef = useRef(0);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const timersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const blurTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const t = setTimeout(() => {
@@ -62,10 +64,45 @@ export function NegotiationChat() {
     return () => timersRef.current.forEach(clearTimeout);
   }, []);
 
+  // Acompanha a altura real visível (Visual Viewport) para o modo com teclado.
+  useEffect(() => {
+    const viewport = window.visualViewport;
+    if (!viewport) return;
+    const update = () => {
+      document.documentElement.style.setProperty(
+        "--visual-viewport-height",
+        `${viewport.height}px`,
+      );
+    };
+    update();
+    viewport.addEventListener("resize", update);
+    viewport.addEventListener("scroll", update);
+    return () => {
+      viewport.removeEventListener("resize", update);
+      viewport.removeEventListener("scroll", update);
+    };
+  }, [isOpen]);
+
+  const scrollToBottom = () => {
+    const el = scrollRef.current;
+    if (el) el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
+  };
+
+  const handleInputFocus = () => {
+    if (blurTimerRef.current) clearTimeout(blurTimerRef.current);
+    if (window.matchMedia("(max-width: 639px)").matches) setKeyboardOpen(true);
+    timersRef.current.push(setTimeout(scrollToBottom, 200));
+  };
+
+  const handleInputBlur = () => {
+    blurTimerRef.current = setTimeout(() => setKeyboardOpen(false), 150);
+  };
+
   useEffect(() => {
     const el = scrollRef.current;
     if (el) el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
-  }, [messages, isTyping, showOffer]);
+  }, [messages, isTyping, showOffer, keyboardOpen]);
+
 
   const pushBot = (text: string) => {
     idRef.current += 1;
