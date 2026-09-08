@@ -65,7 +65,7 @@ const solutions = [
     icon: Search,
     title: "Consulte seu Score",
     description:
-      "Acompanhe informações importantes relacionadas à sua situação financeira.",
+      "Acompanhe seu Serasa Score e entenda como melhorar suas chances de aprovação para financiamentos, cartões e empréstimos. ",
     cta: "Consultar",
   },
   {
