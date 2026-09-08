@@ -26,15 +26,27 @@ export const Route = createFileRoute("/consultar-cpf/resultado")({
 });
 
 function Resultado() {
+  const [firstName, setFirstName] = useState("");
+
+  useEffect(() => {
+    const stored = sessionStorage.getItem("theHillsLeadName");
+    if (stored && stored.trim()) {
+      setFirstName(stored.trim().split(/\s+/)[0] ?? "");
+    }
+  }, []);
+
   return (
     <div className="min-h-[100dvh] bg-background font-sans">
       {/* Cabeçalho */}
       <header className="flex items-center justify-between px-5 pt-6">
         <div className="flex items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-muted-foreground">
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-primary">
             <User className="h-4 w-4" aria-hidden="true" />
           </span>
-          <span className="text-[15px] text-navy">Olá</span>
+          <span className="text-[15px] text-navy">
+            Olá{firstName ? `, ${firstName}` : ""}
+          </span>
+
         </div>
         <img
           src={serasaWordmark}
