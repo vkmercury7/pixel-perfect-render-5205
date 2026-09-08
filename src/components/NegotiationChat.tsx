@@ -221,11 +221,27 @@ export function NegotiationChat() {
 
   return (
     <>
+      {isOpen && keyboardOpen && (
+        <div className="fixed inset-0 z-[99990] bg-background/95 sm:hidden" aria-hidden="true" />
+      )}
+
       {isOpen && (
         <div
-          className="fixed bottom-24 right-3 left-3 z-50 box-border flex animate-in fade-in slide-in-from-bottom-4 flex-col overflow-hidden rounded-[20px] bg-card shadow-2xl duration-300 sm:left-auto sm:w-[370px] sm:max-w-[370px]"
-          style={{ maxHeight: "min(560px, calc(100dvh - 120px))" }}
+          className={
+            keyboardOpen
+              ? "fixed left-3 right-3 top-2 z-[99999] box-border flex flex-col overflow-hidden rounded-[20px] bg-card shadow-2xl sm:left-auto sm:w-[370px]"
+              : "fixed bottom-24 right-3 left-3 z-50 box-border flex animate-in fade-in slide-in-from-bottom-4 flex-col overflow-hidden rounded-[20px] bg-card shadow-2xl duration-300 sm:left-auto sm:w-[370px] sm:max-w-[370px]"
+          }
+          style={
+            keyboardOpen
+              ? {
+                  height: "calc(var(--visual-viewport-height, 100dvh) - 16px)",
+                  maxHeight: "calc(var(--visual-viewport-height, 100dvh) - 16px)",
+                }
+              : { maxHeight: "min(560px, calc(100dvh - 120px))" }
+          }
         >
+
           {/* Header */}
           <div className="flex items-center gap-3 bg-primary px-4 py-3 text-primary-foreground">
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-foreground/20">
