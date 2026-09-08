@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 
 import { SiteFooter } from "@/components/SiteFooter";
+import { NegotiationChat } from "@/components/NegotiationChat";
 import heroBanner from "@/assets/hero-desbanca.png";
 import promoOfferAsset from "@/assets/promo-oferta.png";
 import serasaLogo from "@/assets/serasa-logo.png";
@@ -401,6 +402,8 @@ function Index() {
       >
         <Headset className="h-6 w-6" aria-hidden="true" />
       </button>
+
+      <NegotiationChat />
     </div>
   );
 }
