@@ -178,7 +178,7 @@ export function NegotiationChat() {
     showNextMessage(
       [
         `Perfeito, ${name}. Recebi as informações.`,
-        "Com base nas condições de negociação que podem estar disponíveis, uma proposta de renegociação pela Serasa pode chegar a até 89% de desconto.",
+        "Com base nas condições de negociação que podem estar disponíveis, uma proposta de renegociação pela Serasa pode chegar a até 97% de desconto.",
         "O percentual final depende da análise, condições disponíveis, características da dívida e aprovação da negociação.",
       ],
       () => setShowOffer(true),
@@ -281,7 +281,7 @@ export function NegotiationChat() {
                 <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
                   Possibilidade de renegociação
                 </p>
-                <p className="mt-1 text-xl font-bold text-navy">Até 89% de desconto*</p>
+                <p className="mt-1 text-xl font-bold text-navy">Até 97% de desconto*</p>
                 <p className="mt-1 text-[11px] text-muted-foreground">
                   *Percentual sujeito às condições e análise da negociação.
                 </p>
