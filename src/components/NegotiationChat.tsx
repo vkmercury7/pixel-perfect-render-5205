@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { MessageCircle, X } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import chatLogo from "@/assets/chat-logo.png";
+import { onOpenChat } from "@/lib/chat-open";
 
 const NEGOTIATION_URL = "/analisando-proposta";
 
@@ -61,6 +62,13 @@ export function NegotiationChat() {
 
   useEffect(() => {
     return () => timersRef.current.forEach(clearTimeout);
+  }, []);
+
+  useEffect(() => {
+    return onOpenChat(() => {
+      setAutoOpened(true);
+      setIsOpen(true);
+    });
   }, []);
 
   const scrollToBottom = () => {
