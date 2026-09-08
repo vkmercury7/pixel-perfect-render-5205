@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, User, Info, Accessibility } from "lucide-react";
 import { DebtValueSummary } from "@/components/DebtValueSummary";
+import serasaWordmark from "@/assets/serasa-wordmark.png";
 
 export const Route = createFileRoute("/consultar-cpf/resultado")({
   head: () => ({
@@ -35,9 +36,11 @@ function Resultado() {
           </span>
           <span className="text-[15px] text-navy">Olá</span>
         </div>
-        <span className="text-[12px] font-extrabold tracking-[0.18em] text-navy/60">
-           SERASA
-        </span>
+        <img
+          src={serasaWordmark}
+          alt="Serasa"
+          className="h-6 w-auto"
+        />
       </header>
 
       {/* Aviso de demonstração */}
