@@ -1,7 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { AlertTriangle, Accessibility } from "lucide-react";
-import logoAsset from "@/assets/logo-th.png.asset.json";
+import logoAsset from "@/assets/logo-th.png";
 
 export const Route = createFileRoute("/consultar-cpf/")({
   head: () => ({
@@ -53,7 +53,7 @@ function ConsultarCpf() {
       <div className="pt-14">
         {/* Logo THE HILLS */}
         <img
-          src={logoAsset.url}
+          src={logoAsset}
           alt="THE HILLS"
           className="h-9 w-9 rounded-lg object-contain"
         />
