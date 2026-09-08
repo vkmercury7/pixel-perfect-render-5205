@@ -58,7 +58,7 @@ const solutions = [
     icon: HandCoins,
     title: "Negocie suas dívidas",
     description:
-      "Organize suas pendências financeiras através das soluções disponíveis na plataforma THE HILLS.",
+      "No Serasa Limpa Nome, você quita dívidas com descontos exclusivos e parcelamento facilitado. Tudo 100% online.",
     cta: "Consultar dívida",
   },
   {
