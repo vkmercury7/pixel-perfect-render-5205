@@ -42,11 +42,13 @@ export function NegotiationChat() {
   const [name, setName] = useState("");
   const [draft, setDraft] = useState("");
   const [started, setStarted] = useState(false);
+  const [keyboardOpen, setKeyboardOpen] = useState(false);
 
   const idRef = useRef(0);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const timersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const blurTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const t = setTimeout(() => {
@@ -62,10 +64,45 @@ export function NegotiationChat() {
     return () => timersRef.current.forEach(clearTimeout);
   }, []);
 
+  // Acompanha a altura real visível (Visual Viewport) para o modo com teclado.
+  useEffect(() => {
+    const viewport = window.visualViewport;
+    if (!viewport) return;
+    const update = () => {
+      document.documentElement.style.setProperty(
+        "--visual-viewport-height",
+        `${viewport.height}px`,
+      );
+    };
+    update();
+    viewport.addEventListener("resize", update);
+    viewport.addEventListener("scroll", update);
+    return () => {
+      viewport.removeEventListener("resize", update);
+      viewport.removeEventListener("scroll", update);
+    };
+  }, [isOpen]);
+
+  const scrollToBottom = () => {
+    const el = scrollRef.current;
+    if (el) el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
+  };
+
+  const handleInputFocus = () => {
+    if (blurTimerRef.current) clearTimeout(blurTimerRef.current);
+    if (window.matchMedia("(max-width: 639px)").matches) setKeyboardOpen(true);
+    timersRef.current.push(setTimeout(scrollToBottom, 200));
+  };
+
+  const handleInputBlur = () => {
+    blurTimerRef.current = setTimeout(() => setKeyboardOpen(false), 150);
+  };
+
   useEffect(() => {
     const el = scrollRef.current;
     if (el) el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
-  }, [messages, isTyping, showOffer]);
+  }, [messages, isTyping, showOffer, keyboardOpen]);
+
 
   const pushBot = (text: string) => {
     idRef.current += 1;
@@ -184,13 +221,29 @@ export function NegotiationChat() {
 
   return (
     <>
+      {isOpen && keyboardOpen && (
+        <div className="fixed inset-0 z-[99990] bg-background/95 sm:hidden" aria-hidden="true" />
+      )}
+
       {isOpen && (
         <div
-          className="fixed bottom-24 right-3 left-3 z-50 box-border flex animate-in fade-in slide-in-from-bottom-4 flex-col overflow-hidden rounded-[20px] bg-card shadow-2xl duration-300 sm:left-auto sm:w-[370px] sm:max-w-[370px]"
-          style={{ maxHeight: "min(560px, calc(100dvh - 120px))" }}
+          className={
+            keyboardOpen
+              ? "fixed left-3 right-3 top-2 z-[99999] box-border flex flex-col overflow-hidden rounded-[20px] bg-card shadow-2xl sm:left-auto sm:w-[370px]"
+              : "fixed bottom-24 right-3 left-3 z-50 box-border flex animate-in fade-in slide-in-from-bottom-4 flex-col overflow-hidden rounded-[20px] bg-card shadow-2xl duration-300 sm:left-auto sm:w-[370px] sm:max-w-[370px]"
+          }
+          style={
+            keyboardOpen
+              ? {
+                  height: "calc(var(--visual-viewport-height, 100dvh) - 16px)",
+                  maxHeight: "calc(var(--visual-viewport-height, 100dvh) - 16px)",
+                }
+              : { maxHeight: "min(560px, calc(100dvh - 120px))" }
+          }
         >
+
           {/* Header */}
-          <div className="flex items-center gap-3 bg-primary px-4 py-3 text-primary-foreground">
+          <div className="flex shrink-0 items-center gap-3 bg-primary px-4 py-3 text-primary-foreground">
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-foreground/20">
               <Headphones className="h-5 w-5" aria-hidden="true" />
             </span>
@@ -212,7 +265,7 @@ export function NegotiationChat() {
           </div>
 
           {/* Progresso */}
-          <div className="border-b border-border px-4 py-2">
+          <div className="shrink-0 border-b border-border px-4 py-2">
             <div className="flex items-center justify-between text-[11px] text-muted-foreground">
               <span>Etapa {step} de 4</span>
             </div>
@@ -225,7 +278,7 @@ export function NegotiationChat() {
           </div>
 
           {/* Mensagens */}
-          <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
+          <div ref={scrollRef} className="min-h-0 flex-1 space-y-3 overflow-y-auto px-4 py-4">
             {messages.map((message) => (
               <div
                 key={message.id}
@@ -274,7 +327,7 @@ export function NegotiationChat() {
 
           {/* Entrada */}
           {!showOffer && (
-            <form onSubmit={handleSubmit} className="border-t border-border p-3">
+            <form onSubmit={handleSubmit} className="shrink-0 border-t border-border p-3">
               {step === 2 && (
                 <p className="mb-2 text-[11px] leading-snug text-muted-foreground">
                   Seus dados devem ser utilizados apenas para dar continuidade a este atendimento.
@@ -286,6 +339,8 @@ export function NegotiationChat() {
                   value={draft}
                   onChange={(event) => handleChange(event.target.value)}
                   disabled={!inputEnabled}
+                  onFocus={handleInputFocus}
+                  onBlur={handleInputBlur}
                   inputMode={step === 1 ? "text" : "numeric"}
                   placeholder={placeholder}
                   aria-label={placeholder}
