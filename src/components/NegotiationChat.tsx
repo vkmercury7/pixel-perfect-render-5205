@@ -185,7 +185,10 @@ export function NegotiationChat() {
   return (
     <>
       {isOpen && (
-        <div className="fixed bottom-24 right-3 left-3 z-50 flex max-h-[550px] animate-in fade-in slide-in-from-bottom-4 flex-col overflow-hidden rounded-[20px] bg-card shadow-2xl duration-300 sm:left-auto sm:w-[370px]">
+        <div
+          className="fixed bottom-24 right-3 left-3 z-50 box-border flex animate-in fade-in slide-in-from-bottom-4 flex-col overflow-hidden rounded-[20px] bg-card shadow-2xl duration-300 sm:left-auto sm:w-[370px] sm:max-w-[370px]"
+          style={{ maxHeight: "min(560px, calc(100dvh - 120px))" }}
+        >
           {/* Header */}
           <div className="flex items-center gap-3 bg-primary px-4 py-3 text-primary-foreground">
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-foreground/20">
@@ -277,7 +280,7 @@ export function NegotiationChat() {
                   Seus dados devem ser utilizados apenas para dar continuidade a este atendimento.
                 </p>
               )}
-              <div className="flex items-center gap-2">
+              <div className="flex w-full items-center gap-2.5">
                 <input
                   ref={inputRef}
                   value={draft}
@@ -286,12 +289,12 @@ export function NegotiationChat() {
                   inputMode={step === 1 ? "text" : "numeric"}
                   placeholder={placeholder}
                   aria-label={placeholder}
-                  className="min-w-0 flex-1 rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-navy outline-none placeholder:text-muted-foreground focus:border-primary disabled:opacity-60"
+                  className="box-border w-auto min-w-0 max-w-full flex-1 rounded-lg border border-border bg-background px-3 py-2.5 text-base text-navy outline-none placeholder:text-muted-foreground focus:border-primary disabled:opacity-60 sm:text-sm"
                 />
                 <button
                   type="submit"
                   disabled={!inputEnabled || !draft.trim()}
-                  className="shrink-0 rounded-lg bg-primary px-4 py-2.5 text-xs font-bold text-primary-foreground transition-opacity disabled:opacity-40"
+                  className="box-border w-auto min-w-[82px] shrink-0 rounded-lg bg-primary px-3 py-2.5 text-xs font-bold text-primary-foreground transition-opacity disabled:opacity-40 sm:min-w-[90px] sm:px-4"
                 >
                   {buttonLabel}
                 </button>
