@@ -83,14 +83,14 @@ const solutions = [
   },
   {
     icon: ShieldCheck,
-    title: "Proteção Financeira",
-    description: "Conheça ferramentas para maior segurança financeira.",
+    title: "Proteja o que importa",
+    description: "Encontre a proteção ideal com os seguros oferecidos por empresas parceiras, diretamente na Serasa.",
     cta: "Conhecer",
   },
   {
     icon: Sparkles,
-    title: "Soluções Premium",
-    description: "Serviços exclusivos para quem deseja avançar ainda mais.",
+    title: "Organize suas contas",
+    description: "Centralize e pague boletos, receba alertas de vencimento e organize sua vida financeira com o Minhas Contas da Serasa. ",
     cta: "Ver opções",
   },
 ];
