@@ -193,25 +193,9 @@ export function NegotiationChat() {
 
   return (
     <>
-      {isOpen && keyboardOpen && (
-        <div className="fixed inset-0 z-[99990] bg-background/95 sm:hidden" aria-hidden="true" />
-      )}
-
       {isOpen && (
         <div
-          className={
-            keyboardOpen
-              ? "fixed left-3 right-3 top-2 z-[99999] box-border flex flex-col overflow-hidden rounded-[20px] bg-card shadow-2xl sm:left-auto sm:w-[370px]"
-              : "fixed bottom-24 right-3 left-3 z-50 box-border flex animate-in fade-in slide-in-from-bottom-4 flex-col overflow-hidden rounded-[20px] bg-card shadow-2xl duration-300 sm:left-auto sm:w-[370px] sm:max-w-[370px]"
-          }
-          style={
-            keyboardOpen
-              ? {
-                  height: "calc(var(--visual-viewport-height, 100dvh) - 16px)",
-                  maxHeight: "calc(var(--visual-viewport-height, 100dvh) - 16px)",
-                }
-              : { maxHeight: "min(560px, calc(100dvh - 120px))" }
-          }
+          className="fixed bottom-3 left-3 right-3 z-[99999] m-0 box-border flex max-h-[78dvh] w-auto max-w-none flex-col overflow-hidden rounded-[20px] bg-card shadow-2xl sm:bottom-24 sm:left-auto sm:w-[370px] sm:max-w-[370px] sm:max-h-[min(560px,calc(100dvh-120px))]"
         >
 
           {/* Header */}
