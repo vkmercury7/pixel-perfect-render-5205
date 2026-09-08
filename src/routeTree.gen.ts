@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AnalisandoPropostaRouteImport } from './routes/analisando-proposta'
 import { Route as ConsultandoRouteImport } from './routes/consultando'
 import { Route as RenegociacaoDemoRouteImport } from './routes/renegociacao-demo'
 import { Route as ConsultarCpfIndexRouteImport } from './routes/consultar-cpf.index'
@@ -18,6 +19,11 @@ import { Route as ConsultarCpfResultadoRouteImport } from './routes/consultar-cp
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnalisandoPropostaRoute = AnalisandoPropostaRouteImport.update({
+  id: '/analisando-proposta',
+  path: '/analisando-proposta',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ConsultandoRoute = ConsultandoRouteImport.update({
@@ -43,6 +49,7 @@ const ConsultarCpfResultadoRoute = ConsultarCpfResultadoRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/analisando-proposta': typeof AnalisandoPropostaRoute
   '/consultando': typeof ConsultandoRoute
   '/renegociacao-demo': typeof RenegociacaoDemoRoute
   '/consultar-cpf/resultado': typeof ConsultarCpfResultadoRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/analisando-proposta': typeof AnalisandoPropostaRoute
   '/consultando': typeof ConsultandoRoute
   '/renegociacao-demo': typeof RenegociacaoDemoRoute
   '/consultar-cpf/resultado': typeof ConsultarCpfResultadoRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/analisando-proposta': typeof AnalisandoPropostaRoute
   '/consultando': typeof ConsultandoRoute
   '/renegociacao-demo': typeof RenegociacaoDemoRoute
   '/consultar-cpf/resultado': typeof ConsultarCpfResultadoRoute
@@ -67,6 +76,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/analisando-proposta'
     | '/consultando'
     | '/renegociacao-demo'
     | '/consultar-cpf/resultado'
@@ -74,6 +84,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/analisando-proposta'
     | '/consultando'
     | '/renegociacao-demo'
     | '/consultar-cpf/resultado'
@@ -81,6 +92,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/analisando-proposta'
     | '/consultando'
     | '/renegociacao-demo'
     | '/consultar-cpf/resultado'
@@ -89,6 +101,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnalisandoPropostaRoute: typeof AnalisandoPropostaRoute
   ConsultandoRoute: typeof ConsultandoRoute
   RenegociacaoDemoRoute: typeof RenegociacaoDemoRoute
   ConsultarCpfResultadoRoute: typeof ConsultarCpfResultadoRoute
@@ -102,6 +115,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analisando-proposta': {
+      id: '/analisando-proposta'
+      path: '/analisando-proposta'
+      fullPath: '/analisando-proposta'
+      preLoaderRoute: typeof AnalisandoPropostaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/consultando': {
@@ -137,6 +157,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnalisandoPropostaRoute: AnalisandoPropostaRoute,
   ConsultandoRoute: ConsultandoRoute,
   RenegociacaoDemoRoute: RenegociacaoDemoRoute,
   ConsultarCpfResultadoRoute: ConsultarCpfResultadoRoute,

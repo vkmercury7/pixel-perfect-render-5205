@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, User, Info, Accessibility } from "lucide-react";
+import { DebtValueSummary } from "@/components/DebtValueSummary";
 
 export const Route = createFileRoute("/consultar-cpf/resultado")({
   head: () => ({
@@ -75,6 +76,10 @@ function Resultado() {
           <span className="h-1.5 w-1.5 rounded-full bg-border" />
         </div>
       </section>
+
+      <div className="h-10" />
+
+      <DebtValueSummary />
 
       {/* Espaço amplo */}
       <div className="h-24" />

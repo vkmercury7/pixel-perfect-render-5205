@@ -3,7 +3,7 @@ import { MessageCircle, X } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import chatLogo from "@/assets/chat-logo.png";
 
-const NEGOTIATION_URL = "/consultar-cpf/resultado";
+const NEGOTIATION_URL = "/analisando-proposta";
 
 type ChatMessage = {
   id: number;
@@ -130,6 +130,11 @@ export function NegotiationChat() {
     pushUser(clean);
     const firstName = clean.split(" ")[0] ?? clean;
     setName(firstName);
+    try {
+      sessionStorage.setItem("theHillsLeadName", firstName);
+    } catch {
+      // ignore
+    }
     setDraft("");
     setInputEnabled(false);
     setStep(2);
@@ -161,6 +166,11 @@ export function NegotiationChat() {
 
   const handleDebtSubmit = (value: string) => {
     if (!value.replace(/\D/g, "")) return;
+    try {
+      sessionStorage.setItem("theHillsDebtValue", value);
+    } catch {
+      // ignore
+    }
     pushUser(value);
     setDraft("");
     setInputEnabled(false);
