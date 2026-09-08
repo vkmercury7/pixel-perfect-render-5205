@@ -243,7 +243,7 @@ export function NegotiationChat() {
         >
 
           {/* Header */}
-          <div className="flex items-center gap-3 bg-primary px-4 py-3 text-primary-foreground">
+          <div className="flex shrink-0 items-center gap-3 bg-primary px-4 py-3 text-primary-foreground">
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-foreground/20">
               <Headphones className="h-5 w-5" aria-hidden="true" />
             </span>
@@ -265,7 +265,7 @@ export function NegotiationChat() {
           </div>
 
           {/* Progresso */}
-          <div className="border-b border-border px-4 py-2">
+          <div className="shrink-0 border-b border-border px-4 py-2">
             <div className="flex items-center justify-between text-[11px] text-muted-foreground">
               <span>Etapa {step} de 4</span>
             </div>
@@ -278,7 +278,7 @@ export function NegotiationChat() {
           </div>
 
           {/* Mensagens */}
-          <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
+          <div ref={scrollRef} className="min-h-0 flex-1 space-y-3 overflow-y-auto px-4 py-4">
             {messages.map((message) => (
               <div
                 key={message.id}
@@ -327,7 +327,7 @@ export function NegotiationChat() {
 
           {/* Entrada */}
           {!showOffer && (
-            <form onSubmit={handleSubmit} className="border-t border-border p-3">
+            <form onSubmit={handleSubmit} className="shrink-0 border-t border-border p-3">
               {step === 2 && (
                 <p className="mb-2 text-[11px] leading-snug text-muted-foreground">
                   Seus dados devem ser utilizados apenas para dar continuidade a este atendimento.
@@ -339,6 +339,8 @@ export function NegotiationChat() {
                   value={draft}
                   onChange={(event) => handleChange(event.target.value)}
                   disabled={!inputEnabled}
+                  onFocus={handleInputFocus}
+                  onBlur={handleInputBlur}
                   inputMode={step === 1 ? "text" : "numeric"}
                   placeholder={placeholder}
                   aria-label={placeholder}
