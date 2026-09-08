@@ -70,15 +70,15 @@ const solutions = [
   },
   {
     icon: BarChart3,
-    title: "Score Financeiro",
+    title: "Solicite crédito",
     description:
-      "Entenda melhor sua saúde financeira e acompanhe sua evolução.",
+      "Simule as melhores opções de empréstimo e solicite cartão de crédito com as melhores condições no Serasa Crédito.",
     cta: "Ver detalhes",
   },
   {
     icon: Wallet,
-    title: "Planejamento Financeiro",
-    description: "Organize receitas, despesas e metas financeiras.",
+    title: "Monitore seu CPF",
+    description: "Fique no controle dos seus dados, receba alertas sobre CPF e CNPJ e aumente sua proteção contra fraudes com o Serasa Premium. ",
     cta: "Planejar",
   },
   {
