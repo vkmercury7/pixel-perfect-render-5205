@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { MessageCircle, X, Headphones } from "lucide-react";
+import { MessageCircle, X } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import chatLogoAsset from "@/assets/chat-logo.png.asset.json";
 
 const NEGOTIATION_URL = "/consultar-cpf/resultado";
 
@@ -200,8 +201,8 @@ export function NegotiationChat() {
 
           {/* Header */}
           <div className="flex shrink-0 items-center gap-3 bg-primary px-4 py-3 text-primary-foreground">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-foreground/20">
-              <Headphones className="h-5 w-5" aria-hidden="true" />
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-foreground/20 overflow-hidden">
+              <img src={chatLogoAsset.url} alt="Serasa" className="h-8 w-8 rounded-full object-cover" />
             </span>
             <div className="min-w-0 flex-1 leading-tight">
               <p className="text-sm font-bold">Assistente Virtual</p>
