@@ -222,12 +222,13 @@ function Index() {
               Encontre oportunidades para organizar suas pendências financeiras, melhorar seu
               planejamento e recuperar o controle das suas finanças.
             </p>
-            <Link
-              to="/consultar-cpf"
+            <button
+              type="button"
+              onClick={openChat}
               className="mt-5 block w-full rounded-lg bg-primary px-6 py-4 text-center text-base font-bold text-primary-foreground transition-colors hover:bg-primary/90"
             >
               Consultar agora
-            </Link>
+            </button>
 
           </div>
         </section>
