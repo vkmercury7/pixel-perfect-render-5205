@@ -101,7 +101,7 @@ function Resultado() {
 
         <article className="mt-4 rounded-2xl border border-border bg-card p-5">
           <span className="inline-block rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
-             DÍVIDA ENCONTRADA
+             DESCONTO APLICADO
           </span>
 
           <p className="mt-4 text-[11px] uppercase tracking-wide text-muted-foreground">
@@ -110,7 +110,7 @@ function Resultado() {
           <p className="text-[17px] font-bold text-navy">Dívida bancária</p>
 
           <p className="mt-3 text-[13px] text-muted-foreground">
-            Data: 07/09/2026
+             Válido até: 20/09/2026
           </p>
 
           <p className="mt-4 text-[13px] text-muted-foreground">Valor</p>
@@ -119,7 +119,7 @@ function Resultado() {
           </p>
 
           <p className="mt-3 text-[12px] font-bold uppercase tracking-wide text-primary">
-             PENDÊNCIA ENCONTRADA
+              DESCONTO ENCONTRADO
           </p>
           <p className="mt-3 text-[12px] leading-relaxed text-muted-foreground">
              Regularize a pendência para manter seu CPF em dia.
