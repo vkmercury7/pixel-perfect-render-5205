@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef, useState } from "react";
+import { openChat } from "@/lib/chat-open";
 import {
   Menu,
   User,
