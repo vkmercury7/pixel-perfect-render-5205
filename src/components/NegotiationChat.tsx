@@ -105,7 +105,7 @@ export function NegotiationChat() {
     setStarted(true);
     showNextMessage(
       [
-        "Olá! 👋 Eu sou a assistente virtual da The Hills.",
+        "Olá! 👋 Eu sou a assistente virtual da Serasa.",
         "Vou te fazer algumas perguntas rápidas para entendermos melhor sua situação e apresentar informações sobre uma possível renegociação.",
         "Para começarmos, qual é o seu nome?",
       ],
@@ -193,7 +193,7 @@ export function NegotiationChat() {
             </span>
             <div className="min-w-0 flex-1 leading-tight">
               <p className="text-sm font-bold">Assistente Virtual</p>
-              <p className="text-xs opacity-90">THE HILLS</p>
+              <p className="text-xs opacity-90">Serasa</p>
               <p className="mt-0.5 flex items-center gap-1 text-[11px] opacity-90">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary-foreground" />
                 Online
