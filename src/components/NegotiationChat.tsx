@@ -42,13 +42,11 @@ export function NegotiationChat() {
   const [name, setName] = useState("");
   const [draft, setDraft] = useState("");
   const [started, setStarted] = useState(false);
-  const [keyboardOpen, setKeyboardOpen] = useState(false);
 
   const idRef = useRef(0);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const timersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
-  const blurTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const t = setTimeout(() => {
@@ -64,44 +62,18 @@ export function NegotiationChat() {
     return () => timersRef.current.forEach(clearTimeout);
   }, []);
 
-  // Acompanha a altura real visível (Visual Viewport) para o modo com teclado.
-  useEffect(() => {
-    const viewport = window.visualViewport;
-    if (!viewport) return;
-    const update = () => {
-      document.documentElement.style.setProperty(
-        "--visual-viewport-height",
-        `${viewport.height}px`,
-      );
-    };
-    update();
-    viewport.addEventListener("resize", update);
-    viewport.addEventListener("scroll", update);
-    return () => {
-      viewport.removeEventListener("resize", update);
-      viewport.removeEventListener("scroll", update);
-    };
-  }, [isOpen]);
-
   const scrollToBottom = () => {
     const el = scrollRef.current;
     if (el) el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
   };
 
   const handleInputFocus = () => {
-    if (blurTimerRef.current) clearTimeout(blurTimerRef.current);
-    if (window.matchMedia("(max-width: 639px)").matches) setKeyboardOpen(true);
-    timersRef.current.push(setTimeout(scrollToBottom, 200));
-  };
-
-  const handleInputBlur = () => {
-    blurTimerRef.current = setTimeout(() => setKeyboardOpen(false), 150);
+    timersRef.current.push(setTimeout(scrollToBottom, 250));
   };
 
   useEffect(() => {
-    const el = scrollRef.current;
-    if (el) el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
-  }, [messages, isTyping, showOffer, keyboardOpen]);
+    scrollToBottom();
+  }, [messages, isTyping, showOffer]);
 
 
   const pushBot = (text: string) => {
@@ -221,25 +193,9 @@ export function NegotiationChat() {
 
   return (
     <>
-      {isOpen && keyboardOpen && (
-        <div className="fixed inset-0 z-[99990] bg-background/95 sm:hidden" aria-hidden="true" />
-      )}
-
       {isOpen && (
         <div
-          className={
-            keyboardOpen
-              ? "fixed left-3 right-3 top-2 z-[99999] box-border flex flex-col overflow-hidden rounded-[20px] bg-card shadow-2xl sm:left-auto sm:w-[370px]"
-              : "fixed bottom-24 right-3 left-3 z-50 box-border flex animate-in fade-in slide-in-from-bottom-4 flex-col overflow-hidden rounded-[20px] bg-card shadow-2xl duration-300 sm:left-auto sm:w-[370px] sm:max-w-[370px]"
-          }
-          style={
-            keyboardOpen
-              ? {
-                  height: "calc(var(--visual-viewport-height, 100dvh) - 16px)",
-                  maxHeight: "calc(var(--visual-viewport-height, 100dvh) - 16px)",
-                }
-              : { maxHeight: "min(560px, calc(100dvh - 120px))" }
-          }
+          className="fixed bottom-3 left-3 right-3 z-[99999] m-0 box-border flex max-h-[78dvh] w-auto max-w-none flex-col overflow-hidden rounded-[20px] bg-card shadow-2xl sm:bottom-24 sm:left-auto sm:w-[370px] sm:max-w-[370px] sm:max-h-[min(560px,calc(100dvh-120px))]"
         >
 
           {/* Header */}
@@ -278,7 +234,10 @@ export function NegotiationChat() {
           </div>
 
           {/* Mensagens */}
-          <div ref={scrollRef} className="min-h-0 flex-1 space-y-3 overflow-y-auto px-4 py-4">
+          <div
+            ref={scrollRef}
+            className="min-h-0 flex-1 space-y-3 overflow-y-auto overscroll-contain px-4 py-4"
+          >
             {messages.map((message) => (
               <div
                 key={message.id}
@@ -340,7 +299,7 @@ export function NegotiationChat() {
                   onChange={(event) => handleChange(event.target.value)}
                   disabled={!inputEnabled}
                   onFocus={handleInputFocus}
-                  onBlur={handleInputBlur}
+                  
                   inputMode={step === 1 ? "text" : "numeric"}
                   placeholder={placeholder}
                   aria-label={placeholder}
