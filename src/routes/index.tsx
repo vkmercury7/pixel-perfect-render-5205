@@ -63,7 +63,7 @@ const solutions = [
   },
   {
     icon: Search,
-    title: "Consultar CPF",
+    title: "Consulte seu Score",
     description:
       "Acompanhe informações importantes relacionadas à sua situação financeira.",
     cta: "Consultar",
