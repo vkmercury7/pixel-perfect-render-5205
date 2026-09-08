@@ -48,7 +48,7 @@ export function DebtValueSummary() {
         </p>
         <p className="mt-2 text-[12px] text-muted-foreground">
           {name
-            ? `${name}, este foi o valor informado por você.`
+             ? `${name}, este é o valor de sua dívida atual no Serasa.`
             : "Valor informado por você durante o atendimento."}
         </p>
       </div>
