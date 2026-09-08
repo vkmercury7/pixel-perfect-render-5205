@@ -117,7 +117,7 @@ export function NegotiationChat() {
       [
         "Olá! 👋 Eu sou a assistente virtual da Serasa.",
         "Vou te fazer algumas perguntas rápidas para entendermos melhor sua situação e apresentar informações sobre uma possível renegociação.",
-        "Para começarmos, qual é o seu nome?",
+        "Para começarmos, qual é o seu nome e sobrenome?",
       ],
       () => setInputEnabled(true),
     );
