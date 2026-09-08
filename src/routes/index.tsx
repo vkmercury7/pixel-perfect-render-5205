@@ -214,7 +214,7 @@ function Index() {
           />
           <div className="-mt-3 rounded-2xl bg-muted p-5">
             <h1 className="text-[26px] font-bold leading-tight text-navy">
-              Serasa: Renegocie suas dívidas com até 79% de{" "}
+              Serasa: Renegocie suas dívidas com até 97% de{" "}
               <br />
               DESCONTO
             </h1>
