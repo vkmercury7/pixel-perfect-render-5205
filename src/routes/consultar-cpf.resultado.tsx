@@ -26,13 +26,25 @@ export const Route = createFileRoute("/consultar-cpf/resultado")({
   component: Resultado,
 });
 
+const FINAL_VALUE = 39.9;
+
 function Resultado() {
   const [firstName, setFirstName] = useState("");
+  const [reduction, setReduction] = useState<number | null>(null);
 
   useEffect(() => {
     const stored = sessionStorage.getItem("theHillsLeadName");
     if (stored && stored.trim()) {
       setFirstName(stored.trim().split(/\s+/)[0] ?? "");
+    }
+
+    const rawDebt = sessionStorage.getItem("theHillsDebtValue");
+    if (rawDebt) {
+      const digits = rawDebt.replace(/\D/g, "");
+      const amount = digits ? Number(digits) / 100 : 0;
+      if (Number.isFinite(amount) && amount > FINAL_VALUE) {
+        setReduction(Math.round(((amount - FINAL_VALUE) / amount) * 100));
+      }
     }
   }, []);
 
@@ -127,6 +139,11 @@ function Resultado() {
           </p>
 
           <p className="mt-4 text-[13px] text-muted-foreground">Valor</p>
+          {reduction !== null && (
+            <span className="mt-1 inline-block rounded-full bg-accent px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-primary">
+              {reduction}% de redução
+            </span>
+          )}
           <p className="text-[32px] font-bold leading-tight text-navy">
             R$ 39,90
           </p>
