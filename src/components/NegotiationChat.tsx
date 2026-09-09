@@ -42,6 +42,11 @@ export function NegotiationChat() {
   const [step, setStep] = useState(1);
   const [inputEnabled, setInputEnabled] = useState(false);
   const [showOffer, setShowOffer] = useState(false);
+  const [showCoupon, setShowCoupon] = useState(false);
+  const [couponDraft, setCouponDraft] = useState("");
+  const [couponError, setCouponError] = useState("");
+  const [couponApplied, setCouponApplied] = useState(false);
+  const [couponCopied, setCouponCopied] = useState(false);
   const [name, setName] = useState("");
   const [draft, setDraft] = useState("");
   const [started, setStarted] = useState(false);
