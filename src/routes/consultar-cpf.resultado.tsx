@@ -128,7 +128,7 @@ function Resultado() {
 
           <p className="mt-4 text-[13px] text-muted-foreground">Valor</p>
           <p className="text-[32px] font-bold leading-tight text-navy">
-            R$ 39,00
+            R$ 39,90
           </p>
 
           <p className="mt-3 text-[12px] font-bold uppercase tracking-wide text-primary">
