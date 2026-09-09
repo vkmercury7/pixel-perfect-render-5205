@@ -5,6 +5,7 @@ import chatLogo from "@/assets/chat-logo.png";
 import { onOpenChat } from "@/lib/chat-open";
 
 const NEGOTIATION_URL = "/analisando-proposta";
+const COUPON_CODE = "SERASA10";
 
 type ChatMessage = {
   id: number;
