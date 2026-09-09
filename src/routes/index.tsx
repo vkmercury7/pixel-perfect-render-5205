@@ -20,7 +20,7 @@ import {
 
 import { SiteFooter } from "@/components/SiteFooter";
 import { NegotiationChat } from "@/components/NegotiationChat";
-import heroBanner from "@/assets/hero-desbanca.png";
+import vslVideo from "@/assets/vsl-0909.mp4.asset.json";
 import promoOfferAsset from "@/assets/promo-oferta.png";
 import serasaLogo from "@/assets/serasa-logo.png";
 import avatar1 from "@/assets/avatar-1.jpg";
@@ -206,12 +206,13 @@ function Index() {
       <main className="mx-auto max-w-5xl px-4 pb-16 pt-4">
         {/* Hero */}
         <section>
-          <img
-            src={heroBanner}
-            alt="Pessoa com celular e cupons de desconto THE HILLS"
-            width={860}
-            height={760}
-            className="w-full rounded-2xl object-cover"
+          <video
+            src={vslVideo.url}
+            controls
+            playsInline
+            preload="metadata"
+            className="mx-auto w-full rounded-2xl bg-black"
+            style={{ aspectRatio: "16 / 9" }}
           />
           <div className="-mt-3 rounded-2xl bg-muted p-5">
             <h1 className="text-[26px] font-bold leading-tight text-navy">
