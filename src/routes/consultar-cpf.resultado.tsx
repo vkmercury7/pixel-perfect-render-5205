@@ -139,11 +139,6 @@ function Resultado() {
           </p>
 
           <p className="mt-4 text-[13px] text-muted-foreground">Valor</p>
-          {reduction !== null && (
-            <span className="mt-1 inline-block rounded-full bg-accent px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-primary">
-              {reduction}% de redução
-            </span>
-          )}
           <p className="text-[32px] font-bold leading-tight text-navy">
             R$ 39,90
           </p>
