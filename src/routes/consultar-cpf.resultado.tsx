@@ -110,7 +110,15 @@ function Resultado() {
       <DebtValueSummary />
 
       {/* Espaço amplo */}
-      <div className="h-24" />
+      {reduction !== null ? (
+        <div className="flex h-24 items-center justify-center px-5">
+          <span className="rounded-full bg-accent px-4 py-2 text-center text-[13px] font-bold uppercase tracking-wider text-primary">
+            {reduction}% de redução encontrada
+          </span>
+        </div>
+      ) : (
+        <div className="h-24" />
+      )}
 
       {/* Negocie sua pendência */}
       <section className="px-5 pb-32">
@@ -139,11 +147,6 @@ function Resultado() {
           </p>
 
           <p className="mt-4 text-[13px] text-muted-foreground">Valor</p>
-          {reduction !== null && (
-            <span className="mt-1 inline-block rounded-full bg-accent px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-primary">
-              {reduction}% de redução
-            </span>
-          )}
           <p className="text-[32px] font-bold leading-tight text-navy">
             R$ 39,90
           </p>
