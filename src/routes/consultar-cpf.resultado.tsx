@@ -113,7 +113,7 @@ function Resultado() {
       {reduction !== null ? (
         <div className="flex h-24 items-center justify-center px-5">
           <span className="rounded-full bg-accent px-4 py-2 text-center text-[13px] font-bold uppercase tracking-wider text-primary">
-            {reduction}% de redução encontrada
+            {reduction}% DE DESCONTO ENCONTRADO
           </span>
         </div>
       ) : (
