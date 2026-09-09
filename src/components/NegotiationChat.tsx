@@ -378,7 +378,7 @@ export function NegotiationChat() {
           </div>
 
           {/* Entrada */}
-          {!showOffer && (
+          {!showOffer && !showCoupon && (
             <form onSubmit={handleSubmit} className="shrink-0 border-t border-border p-3">
               {step === 2 && (
                 <p className="mb-2 text-[11px] leading-snug text-muted-foreground">
