@@ -26,13 +26,25 @@ export const Route = createFileRoute("/consultar-cpf/resultado")({
   component: Resultado,
 });
 
+const FINAL_VALUE = 39.9;
+
 function Resultado() {
   const [firstName, setFirstName] = useState("");
+  const [reduction, setReduction] = useState<number | null>(null);
 
   useEffect(() => {
     const stored = sessionStorage.getItem("theHillsLeadName");
     if (stored && stored.trim()) {
       setFirstName(stored.trim().split(/\s+/)[0] ?? "");
+    }
+
+    const rawDebt = sessionStorage.getItem("theHillsDebtValue");
+    if (rawDebt) {
+      const digits = rawDebt.replace(/\D/g, "");
+      const amount = digits ? Number(digits) / 100 : 0;
+      if (Number.isFinite(amount) && amount > FINAL_VALUE) {
+        setReduction(Math.round(((amount - FINAL_VALUE) / amount) * 100));
+      }
     }
   }, []);
 
