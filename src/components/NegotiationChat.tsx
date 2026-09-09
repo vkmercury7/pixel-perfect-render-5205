@@ -188,9 +188,31 @@ export function NegotiationChat() {
         `Perfeito, ${name}. Recebi as informações.`,
         "Com base nas condições de negociação que podem estar disponíveis, uma proposta de renegociação pela Serasa pode chegar a até 97% de desconto.",
         "O percentual final depende da análise, condições disponíveis, características da dívida e aprovação da negociação.",
+        "Para acessar as condições da nossa oferta, aplique o cupom abaixo no campo de desconto.",
       ],
-      () => setShowOffer(true),
+      () => setShowCoupon(true),
     );
+  };
+
+  const handleCopyCoupon = async () => {
+    try {
+      await navigator.clipboard.writeText(COUPON_CODE);
+      setCouponCopied(true);
+      timersRef.current.push(setTimeout(() => setCouponCopied(false), 2000));
+    } catch {
+      // ignore
+    }
+  };
+
+  const handleApplyCoupon = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (couponDraft.trim().toLowerCase() === COUPON_CODE.toLowerCase()) {
+      setCouponError("");
+      setCouponApplied(true);
+      timersRef.current.push(setTimeout(() => setShowOffer(true), 600));
+    } else {
+      setCouponError("Cupom inválido. Confira o código e tente novamente.");
+    }
   };
 
   const handleSubmit = (event: React.FormEvent) => {
