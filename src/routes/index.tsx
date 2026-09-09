@@ -206,14 +206,8 @@ function Index() {
       <main className="mx-auto max-w-5xl px-4 pb-16 pt-4">
         {/* Hero */}
         <section>
-          <video
-            src={vslVideo.url}
-            controls
-            playsInline
-            preload="metadata"
-            className="mx-auto w-full rounded-2xl bg-black"
-            style={{ aspectRatio: "16 / 9" }}
-          />
+          <VslPlayer />
+
           <div className="-mt-3 rounded-2xl bg-muted p-5">
             <h1 className="text-[26px] font-bold leading-tight text-navy">
               Serasa: Renegocie suas dívidas com até 97% de{" "}
