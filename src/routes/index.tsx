@@ -20,7 +20,7 @@ import {
 
 import { SiteFooter } from "@/components/SiteFooter";
 import { NegotiationChat } from "@/components/NegotiationChat";
-import vslVideo from "@/assets/vsl-0909.mp4.asset.json";
+import { VslPlayer } from "@/components/VslPlayer";
 import promoOfferAsset from "@/assets/promo-oferta.png";
 import serasaLogo from "@/assets/serasa-logo.png";
 import avatar1 from "@/assets/avatar-1.jpg";
