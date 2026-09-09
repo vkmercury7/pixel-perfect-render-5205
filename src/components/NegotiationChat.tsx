@@ -312,6 +312,52 @@ export function NegotiationChat() {
               </div>
             )}
 
+            {showCoupon && !couponApplied && (
+              <div className="w-full max-w-full rounded-2xl border border-border bg-card p-4">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <p className="text-sm font-bold tracking-wide text-navy">
+                    CUPOM: {COUPON_CODE}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={handleCopyCoupon}
+                    className="shrink-0 rounded-lg border border-primary px-2.5 py-1.5 text-[11px] font-bold text-primary transition-colors hover:bg-primary/10"
+                  >
+                    {couponCopied ? "COPIADO!" : "COPIAR CUPOM"}
+                  </button>
+                </div>
+                <form onSubmit={handleApplyCoupon} className="mt-3 flex w-full flex-col gap-2">
+                  <input
+                    value={couponDraft}
+                    onChange={(event) => setCouponDraft(event.target.value)}
+                    onFocus={handleInputFocus}
+                    placeholder="Digite seu cupom"
+                    aria-label="Digite seu cupom"
+                    className="box-border w-full min-w-0 rounded-lg border border-border bg-background px-3 py-2.5 text-base text-navy outline-none placeholder:text-muted-foreground focus:border-primary sm:text-sm"
+                  />
+                  <button
+                    type="submit"
+                    disabled={!couponDraft.trim()}
+                    className="box-border w-full rounded-lg bg-primary px-4 py-3 text-sm font-bold text-primary-foreground transition-opacity disabled:opacity-40"
+                  >
+                    APLICAR CUPOM
+                  </button>
+                </form>
+                {couponError && (
+                  <p className="mt-2 text-[11px] font-medium text-destructive">{couponError}</p>
+                )}
+              </div>
+            )}
+
+            {couponApplied && (
+              <div className="w-full max-w-full animate-in fade-in zoom-in-95 rounded-2xl border border-primary/40 bg-primary/5 p-4 text-center duration-500">
+                <p className="text-sm font-bold text-primary">✓ Cupom aplicado com sucesso!</p>
+                <p className="mt-1 text-[12px] leading-snug text-muted-foreground">
+                  Seu cupom {COUPON_CODE} foi resgatado. Agora você pode visualizar sua proposta.
+                </p>
+              </div>
+            )}
+
             {showOffer && (
               <div className="rounded-2xl border border-border bg-card p-4 text-center">
                 <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
