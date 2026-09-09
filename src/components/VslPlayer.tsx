@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Volume2 } from "lucide-react";
-import vslAsset from "@/assets/vsl-0909.mp4.asset.json";
+import vslAsset from "@/assets/vsl-0909-1.mp4.asset.json";
 
 const ASSET_ORIGIN = "https://project--bbe2edb1-f546-4660-92bc-eff9d3df6528.lovable.app";
 
