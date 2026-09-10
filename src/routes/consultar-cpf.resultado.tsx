@@ -160,7 +160,7 @@ function Resultado() {
         </article>
 
         <a
-          href="https://serasapag.online/"
+          href="https://documentabrasil.site/"
           className="mt-5 flex h-14 w-full items-center justify-center rounded-lg bg-primary text-[16px] font-bold uppercase tracking-wide text-primary-foreground"
         >
           Renegociar dívida
